@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECTEI2026</title>
+    <style>
+    /* --- ESTILOS ORIGINALES --- */
+    body {
+        font-family: sans-serif; /* Puse esto aquí para que toda la página tenga la misma letra */
+    }
+
+    .boton-desplegable {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        list-style: none;
+        margin-bottom: 5px;
+    }
+
+    .boton-desplegable:hover {
+        background-color: #0056b3;
+    }
+
+    .contenido {
+        border: 1px solid #ccc;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+
+    /* --- ESTILOS NUEVOS PARA EL MENÚ LATERAL --- */
+    
+    /* El menú lateral (oculto por defecto con width: 0) */
+    .sidebar {
+        height: 100%;           /* Alto completo */
+        width: 0;               /* Ancho inicial 0 (invisible) */
+        position: fixed;        /* Se queda fijo aunque bajes la página */
+        z-index: 1;             /* Se pone encima de todo */
+        top: 0;
+        left: 0;
+        background-color: #111; /* Fondo negro elegante */
+        overflow-x: hidden;     /* Oculta lo que sobre */
+        transition: 0.5s;       /* Animación suave de medio segundo */
+        padding-top: 60px;
+    }
+
+    /* Los enlaces dentro del menú */
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    /* Cuando pasas el mouse por los enlaces del menú */
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+
+    /* Botón de cerrar (la X) dentro del menú */
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* Estilo para el botón especial de Indice Temático */
+    .boton-indice {
+        background-color: #28a745; /* Verde para diferenciarlo */
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    .boton-indice:hover {
+        background-color: #218838;
+    }
+
+    /* Contenedor para alinear a la derecha */
+    .contenedor-derecha {
+        text-align: right;
+        margin-top: 30px; /* Espacio separador de arriba */
+    }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center; background-color: #f5deb3; padding: 10px;">Proyecto SECTEI 2025</h1>
+
+    <details>
+        <summary class="boton-desplegable">📂 Información General</summary>
+        <div class="contenido">
+            <p>info del proyecto lol</p>
+            <p>nombres de la banda</p>
+        </div>
+    </details>
+
+    <br>
+
+    <details>
+        <summary class="boton-desplegable">📄 Descargar Documentos</summary>
+        <div class="contenido">
+            <p>minutas:</p>
+            <a href="mi-archivo.pdf" target="_blank">drive</a>
+            <br><br>
+            
+        </div>
+    </details>
+
+    <hr> <div class="contenedor-derecha">
+        <button class="boton-indice" onclick="openNav()">☰ Índice Temático 2026</button>
+    </div>
+
+    <div id="miMenuLateral" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        
+        <a href="#">1. Normativas y herramientas</a>
+        <a href="#">2. Redes de monitoreo actuales</a>
+        <a href="#">3. Misión espacial</a>
+        <a href="#">4. Métodos de detección</a>
+        <a href="#">5. Gases de efecto invernadero</a>
+        <a href="#">6. Cronograma del proyecto</a>
+        <a href="#">7. Difusión del proyecto</a>
+        <a href="#">8. Componentes</a>
+        <a href="#">9. BOM - Compras</a>
+    </div>
+
+    <script>
+        /* Función para abrir el menú */
+        function openNav() {
+            document.getElementById("miMenuLateral").style.width = "250px";
+        }
+
+        /* Función para cerrar el menú */
+        function closeNav() {
+            document.getElementById("miMenuLateral").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>
