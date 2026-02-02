@@ -1,149 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SECTEI2026</title>
-    <style>
-    /* --- ESTILOS ORIGINALES --- */
-    body {
-        font-family: sans-serif; /* Puse esto aquí para que toda la página tenga la misma letra */
-    }
-
-    .boton-desplegable {
-        background-color: #007bff;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        list-style: none;
-        margin-bottom: 5px;
-    }
-
-    .boton-desplegable:hover {
-        background-color: #0056b3;
-    }
-
-    .contenido {
-        border: 1px solid #ccc;
-        padding: 15px;
-        background-color: #f9f9f9;
-        border-radius: 5px;
-    }
-
-    /* --- ESTILOS NUEVOS PARA EL MENÚ LATERAL --- */
-    
-    /* El menú lateral (oculto por defecto con width: 0) */
-    .sidebar {
-        height: 100%;           /* Alto completo */
-        width: 0;               /* Ancho inicial 0 (invisible) */
-        position: fixed;        /* Se queda fijo aunque bajes la página */
-        z-index: 1;             /* Se pone encima de todo */
-        top: 0;
-        left: 0;
-        background-color: #111; /* Fondo negro elegante */
-        overflow-x: hidden;     /* Oculta lo que sobre */
-        transition: 0.5s;       /* Animación suave de medio segundo */
-        padding-top: 60px;
-    }
-
-    /* Los enlaces dentro del menú */
-    .sidebar a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 18px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-    }
-
-    /* Cuando pasas el mouse por los enlaces del menú */
-    .sidebar a:hover {
-        color: #f1f1f1;
-    }
-
-    /* Botón de cerrar (la X) dentro del menú */
-    .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
-    /* Estilo para el botón especial de Indice Temático */
-    .boton-indice {
-        background-color: #28a745; /* Verde para diferenciarlo */
-        color: white;
-        padding: 15px 25px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-    
-    .boton-indice:hover {
-        background-color: #218838;
-    }
-
-    /* Contenedor para alinear a la derecha */
-    .contenedor-derecha {
-        text-align: right;
-        margin-top: 30px; /* Espacio separador de arriba */
-    }
-    </style>
+    <title>SECTEI 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <h1 style="text-align: center; background-color: #f5deb3; padding: 10px;">Proyecto SECTEI 2025</h1>
-
-    <details>
-        <summary class="boton-desplegable">📂 Información General</summary>
-        <div class="contenido">
-            <p>info del proyecto lol</p>
-            <p>nombres de la banda</p>
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <span class="navbar-brand">SECTEI</span>
+            <span class="navbar-year">2026</span>
         </div>
-    </details>
-
-    <br>
-
-    <details>
-        <summary class="boton-desplegable">📄 Descargar Documentos</summary>
-        <div class="contenido">
-            <p>minutas:</p>
-            <a href="mi-archivo.pdf" target="_blank">drive</a>
-            <br><br>
-            
+        <div class="navbar-right">
+            <button class="navbar-btn" onclick="openNav()">
+                <span class="hamburger-icon"></span>
+                Índice Temático
+            </button>
         </div>
-    </details>
+    </nav>
 
-    <hr> <div class="contenedor-derecha">
-        <button class="boton-indice" onclick="openNav()">☰ Índice Temático 2026</button>
-    </div>
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+        <p class="hero-tag">Secretaría de Educación, Ciencia, Tecnología e Innovación</p>
+        <h1 class="hero-title">Proyecto SECTEI 2025</h1>
+        <p class="hero-subtitle">Portal de consulta y documentación del proyecto</p>
+    </section>
 
+    <!-- ========== CONTENIDO PRINCIPAL ========== -->
+    <main class="main-content">
+
+        <!-- Card: Información General -->
+        <section class="card" style="animation-delay: 0.1s;">
+            <details>
+                <summary class="card-header">
+                    <span class="card-icon">📂</span>
+                    <span class="card-title">Información General</span>
+                    <span class="card-arrow">&#9662;</span>
+                </summary>
+                <div class="card-body">
+                    <p>info del proyecto lol</p>
+                    <p>nombres de la banda</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Card: Documentos -->
+        <section class="card" style="animation-delay: 0.2s;">
+            <details>
+                <summary class="card-header">
+                    <span class="card-icon">📄</span>
+                    <span class="card-title">Descargar Documentos</span>
+                    <span class="card-arrow">&#9662;</span>
+                </summary>
+                <div class="card-body">
+                    <p class="card-body-label">Minutas:</p>
+                    <div class="doc-list">
+                        <a href="https://docs.google.com/document/d/1iqe2y64xt9Wc9UzGSkKYS0JzRL9SPTht0SKCHVyXSp8/edit?tab=t.0" target="_blank" class="doc-link">
+                            <span class="doc-link-icon">&#128196;</span>
+                            <span class="doc-link-text">
+                                <strong>Minuta SECTEI 04/09/2025</strong>
+                                <small>Google Docs</small>
+                            </span>
+                            <span class="doc-link-arrow">&rarr;</span>
+                        </a>
+                        <a href="https://docs.google.com/document/d/11ebGY5aZ4PkgFrd_BcjZT3HaL67oyPHSOcCgbrmZSnI/edit?tab=t.0" target="_blank" class="doc-link">
+                            <span class="doc-link-icon">&#128196;</span>
+                            <span class="doc-link-text">
+                                <strong>Minuta SECTEI 20/01/2026</strong>
+                                <small>Google Docs</small>
+                            </span>
+                            <span class="doc-link-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <p>SECTEI 2026 &mdash; Proyecto de investigación</p>
+    </footer>
+
+    <!-- ========== OVERLAY ========== -->
+    <div class="overlay" id="overlay" onclick="closeNav()"></div>
+
+    <!-- ========== SIDEBAR ========== -->
     <div id="miMenuLateral" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        
-        <a href="#">1. Normativas y herramientas</a>
-        <a href="#">2. Redes de monitoreo actuales</a>
-        <a href="#">3. Misión espacial</a>
-        <a href="#">4. Métodos de detección</a>
-        <a href="#">5. Gases de efecto invernadero</a>
-        <a href="#">6. Cronograma del proyecto</a>
-        <a href="#">7. Difusión del proyecto</a>
-        <a href="#">8. Componentes</a>
-        <a href="#">9. BOM - Compras</a>
+        <div class="sidebar-header">
+            <span class="sidebar-title">Índice Temático</span>
+            <button class="closebtn" onclick="closeNav()">&times;</button>
+        </div>
+        <div class="sidebar-links">
+            <a href="paginas/normativas-y-herramientas.html">1. Normativas y herramientas</a>
+            <a href="paginas/redes-de-monitoreo-actuales.html">2. Redes de monitoreo actuales</a>
+            <a href="paginas/mision-espacial.html">3. Misión espacial</a>
+            <a href="paginas/metodos-de-deteccion.html">4. Métodos de detección</a>
+            <a href="paginas/gases-de-efecto-invernadero.html">5. Gases de efecto invernadero</a>
+            <a href="paginas/cronograma-del-proyecto.html">6. Cronograma del proyecto</a>
+            <a href="paginas/difusion-del-proyecto.html">7. Difusión del proyecto</a>
+            <a href="paginas/componentes.html">8. Componentes</a>
+            <a href="paginas/bom-compras.html">9. BOM - Compras</a>
+        </div>
     </div>
 
     <script>
-        /* Función para abrir el menú */
+        const overlay = document.getElementById("overlay");
+        const sidebar = document.getElementById("miMenuLateral");
+
         function openNav() {
-            document.getElementById("miMenuLateral").style.width = "250px";
+            sidebar.classList.add("open");
+            overlay.classList.add("active");
         }
 
-        /* Función para cerrar el menú */
         function closeNav() {
-            document.getElementById("miMenuLateral").style.width = "0";
+            sidebar.classList.remove("open");
+            overlay.classList.remove("active");
         }
     </script>
 
