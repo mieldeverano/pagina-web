@@ -1,6 +1,6 @@
 /* ========================================
    SECTEI 2026 — Estilos principales
-   Landing page minimalista de consulta
+   Minimalista con iconos Lucide y animaciones
    ======================================== */
 
 /* --- RESET & BASE --- */
@@ -18,13 +18,20 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #fafaf8;
+    background-color: #f5f5f3;
     color: #2c2c2c;
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
+
+/* ========================================
+   ICON SIZES
+   ======================================== */
+.icon-xs { width: 14px; height: 14px; }
+.icon-sm { width: 18px; height: 18px; }
+.icon-md { width: 20px; height: 20px; }
 
 /* ========================================
    NAVBAR
@@ -38,11 +45,11 @@ body {
     justify-content: space-between;
     padding: 0 40px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    animation: fadeSlideDown 0.5s ease-out;
+    background: rgba(245, 245, 243, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    animation: fadeSlideDown 0.6s ease-out;
 }
 
 .navbar-left {
@@ -53,15 +60,15 @@ body {
 
 .navbar-brand {
     font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 1.5px;
+    font-size: 18px;
+    letter-spacing: 2px;
     color: #1a1a1a;
 }
 
 .navbar-year {
-    font-weight: 400;
-    font-size: 13px;
-    color: #999;
+    font-weight: 300;
+    font-size: 12px;
+    color: #aaa;
     letter-spacing: 0.5px;
 }
 
@@ -73,56 +80,27 @@ body {
 .navbar-btn {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background: #1a1a1a;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 9px 18px;
+    border-radius: 6px;
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-btn:hover {
     background: #333;
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .navbar-btn:active {
     transform: translateY(0);
-}
-
-/* Icono hamburguesa con CSS puro */
-.hamburger-icon {
-    width: 16px;
-    height: 2px;
-    background: #fff;
-    position: relative;
-    display: inline-block;
-    border-radius: 1px;
-}
-
-.hamburger-icon::before,
-.hamburger-icon::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 2px;
-    background: #fff;
-    border-radius: 1px;
-    left: 0;
-}
-
-.hamburger-icon::before {
-    top: -5px;
-}
-
-.hamburger-icon::after {
-    top: 5px;
 }
 
 /* ========================================
@@ -131,20 +109,28 @@ body {
 .hero {
     text-align: center;
     padding: 80px 40px 60px;
-    animation: fadeSlideUp 0.7s ease-out;
+    animation: fadeSlideUp 0.8s ease-out;
+}
+
+.hero-line {
+    width: 40px;
+    height: 1px;
+    background: #ccc;
+    margin: 20px auto;
+    animation: lineExpand 1s ease-out 0.4s both;
 }
 
 .hero-tag {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: #999;
+    color: #aaa;
     margin-bottom: 16px;
 }
 
 .hero-title {
-    font-size: 42px;
+    font-size: 40px;
     font-weight: 700;
     color: #1a1a1a;
     margin-bottom: 12px;
@@ -152,10 +138,10 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 17px;
-    font-weight: 400;
-    color: #777;
-    max-width: 480px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    max-width: 440px;
     margin: 0 auto;
 }
 
@@ -164,13 +150,27 @@ body {
    ======================================== */
 .main-content {
     flex: 1;
-    max-width: 720px;
+    max-width: 680px;
     width: 100%;
     margin: 0 auto;
     padding: 0 24px 60px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
+}
+
+/* ========================================
+   SCROLL REVEAL
+   ======================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ========================================
@@ -178,30 +178,28 @@ body {
    ======================================== */
 .card {
     background: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 12px;
+    border: 1px solid #e8e8e6;
+    border-radius: 10px;
     overflow: hidden;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    animation: fadeSlideUp 0.5s ease-out both;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
     border-color: #ddd;
 }
 
-/* Summary como header de card */
 .card-header {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 18px 24px;
+    padding: 16px 22px;
     cursor: pointer;
     list-style: none;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #1a1a1a;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.25s ease;
 }
 
 .card-header::-webkit-details-marker {
@@ -213,8 +211,15 @@ body {
 }
 
 .card-icon {
-    font-size: 20px;
+    color: #999;
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
+    transition: color 0.25s ease;
+}
+
+.card:hover .card-icon {
+    color: #555;
 }
 
 .card-title {
@@ -222,40 +227,41 @@ body {
 }
 
 .card-arrow {
-    font-size: 12px;
-    color: #aaa;
-    transition: transform 0.3s ease;
+    color: #bbb;
+    display: flex;
+    align-items: center;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 details[open] > .card-header .card-arrow {
     transform: rotate(180deg);
 }
 
-/* Body de la card */
 .card-body {
-    padding: 0 24px 20px;
-    animation: fadeIn 0.3s ease-out;
-    border-top: 1px solid #f0f0f0;
-    padding-top: 16px;
+    padding: 0 22px 18px;
+    border-top: 1px solid #f0f0ee;
+    padding-top: 14px;
+    animation: fadeIn 0.35s ease-out;
 }
 
 .card-body p {
     margin: 4px 0;
-    color: #555;
+    color: #666;
     font-size: 14px;
+    font-weight: 300;
 }
 
 .card-body-label {
     font-weight: 600;
     color: #1a1a1a !important;
-    font-size: 13px !important;
+    font-size: 11px !important;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 1.5px;
     margin-bottom: 12px !important;
 }
 
 /* ========================================
-   DOC LINKS (lista de documentos)
+   DOC LINKS
    ======================================== */
 .doc-list {
     display: flex;
@@ -268,24 +274,31 @@ details[open] > .card-header .card-arrow {
     align-items: center;
     gap: 14px;
     padding: 14px 16px;
-    background: #f9f9f7;
-    border: 1px solid #eeece8;
-    border-radius: 10px;
+    background: #fafaf8;
+    border: 1px solid #eeecea;
+    border-radius: 8px;
     text-decoration: none;
     color: inherit;
-    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .doc-link:hover {
-    background: #f0efe9;
+    background: #f0efed;
     border-color: #ddd;
     transform: translateX(4px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 .doc-link-icon {
-    font-size: 24px;
+    color: #aaa;
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
+    transition: color 0.25s ease;
+}
+
+.doc-link:hover .doc-link-icon {
+    color: #666;
 }
 
 .doc-link-text {
@@ -296,20 +309,22 @@ details[open] > .card-header .card-arrow {
 }
 
 .doc-link-text strong {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #1a1a1a;
 }
 
 .doc-link-text small {
-    font-size: 12px;
-    color: #999;
+    font-size: 11px;
+    color: #aaa;
+    font-weight: 300;
 }
 
 .doc-link-arrow {
-    font-size: 16px;
-    color: #bbb;
-    transition: transform 0.25s ease, color 0.25s ease;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .doc-link:hover .doc-link-arrow {
@@ -323,9 +338,11 @@ details[open] > .card-header .card-arrow {
 .footer {
     text-align: center;
     padding: 30px 20px;
-    font-size: 13px;
-    color: #aaa;
-    border-top: 1px solid #eee;
+    font-size: 12px;
+    font-weight: 300;
+    color: #bbb;
+    border-top: 1px solid #ebebeb;
+    letter-spacing: 0.5px;
 }
 
 /* ========================================
@@ -339,7 +356,7 @@ details[open] > .card-header .card-arrow {
     height: 100%;
     z-index: 50;
     background: #fff;
-    box-shadow: -4px 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px 0 40px rgba(0, 0, 0, 0.08);
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
@@ -359,50 +376,62 @@ details[open] > .card-header .card-arrow {
 
 .sidebar-title {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     color: #1a1a1a;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
 }
 
 .closebtn {
     background: none;
     border: none;
-    font-size: 28px;
-    color: #999;
+    color: #aaa;
     cursor: pointer;
-    padding: 0 4px;
-    line-height: 1;
-    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 .closebtn:hover {
     color: #333;
-    transform: scale(1.15);
+    background: #f2f2f0;
 }
 
-/* Links del sidebar */
 .sidebar-links {
     flex: 1;
     overflow-y: auto;
-    padding: 12px 0;
+    padding: 8px 0;
 }
 
 .sidebar-links a {
     display: flex;
     align-items: center;
-    padding: 13px 24px;
+    gap: 12px;
+    padding: 12px 24px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    color: #555;
-    border-left: 3px solid transparent;
-    transition: all 0.2s ease;
+    color: #666;
+    border-left: 2px solid transparent;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar-links a:hover {
     color: #1a1a1a;
     background: #f7f7f5;
     border-left-color: #1a1a1a;
+}
+
+.sidebar-links a i {
+    color: #bbb;
+    transition: color 0.25s ease;
+    flex-shrink: 0;
+}
+
+.sidebar-links a:hover i {
+    color: #555;
 }
 
 /* ========================================
@@ -412,10 +441,11 @@ details[open] > .card-header .card-arrow {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     z-index: 40;
     opacity: 0;
-    transition: opacity 0.35s ease;
+    transition: opacity 0.4s ease;
+    backdrop-filter: blur(2px);
 }
 
 .overlay.active {
@@ -429,7 +459,7 @@ details[open] > .card-header .card-arrow {
 @keyframes fadeSlideDown {
     from {
         opacity: 0;
-        transform: translateY(-12px);
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
@@ -440,7 +470,7 @@ details[open] > .card-header .card-arrow {
 @keyframes fadeSlideUp {
     from {
         opacity: 0;
-        transform: translateY(16px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -453,23 +483,32 @@ details[open] > .card-header .card-arrow {
     to { opacity: 1; }
 }
 
+@keyframes lineExpand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 40px;
+        opacity: 1;
+    }
+}
+
 /* ========================================
-   SUBPÁGINAS — Navbar back + section tag
+   SUBPAGINAS
    ======================================== */
 .navbar-back {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: #f2f2f0;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    background: #f0f0ee;
     color: #1a1a1a;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
     margin-right: 12px;
-    transition: background-color 0.2s ease, transform 0.15s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-back:hover {
@@ -478,42 +517,39 @@ details[open] > .card-header .card-arrow {
 }
 
 .navbar-section-tag {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
-    color: #888;
-    padding: 6px 14px;
-    background: #f2f2f0;
-    border-radius: 20px;
+    color: #999;
+    padding: 5px 12px;
+    background: #f0f0ee;
+    border-radius: 16px;
     letter-spacing: 0.3px;
 }
 
-/* Hero compacto para subpáginas */
 .hero-sm {
     padding: 50px 40px 40px;
 }
 
-/* Card sin details (header estático) */
 .card-section-header {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 18px 24px;
-    font-size: 15px;
+    padding: 16px 22px;
+    font-size: 14px;
     font-weight: 600;
     color: #1a1a1a;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0ee;
 }
 
-/* Estado vacío */
 .empty-state {
-    color: #999 !important;
+    color: #aaa !important;
     font-style: italic;
     font-size: 14px !important;
     padding: 8px 0;
 }
 
 .empty-state code {
-    background: #f2f2f0;
+    background: #f0f0ee;
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 13px;
@@ -521,13 +557,12 @@ details[open] > .card-header .card-arrow {
     color: #555;
 }
 
-/* Main content más ancho cuando hay PDFs embebidos */
 .main-content:has(.pdf-viewer) {
     max-width: 960px;
 }
 
 /* ========================================
-   VISOR DE PDF EMBEBIDO
+   VISOR PDF
    ======================================== */
 .pdf-viewer-wrapper {
     margin-top: 12px;
@@ -544,8 +579,8 @@ details[open] > .card-header .card-arrow {
 }
 
 .pdf-viewer-label small {
-    font-weight: 400;
-    color: #999;
+    font-weight: 300;
+    color: #aaa;
     font-size: 12px;
 }
 
@@ -553,9 +588,9 @@ details[open] > .card-header .card-arrow {
     width: 100%;
     height: 600px;
     border: 1px solid #e5e5e3;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
-    background: #f2f2f0;
+    background: #f0f0ee;
 }
 
 .pdf-viewer iframe {
@@ -564,11 +599,10 @@ details[open] > .card-header .card-arrow {
     border: none;
 }
 
-/* Separador entre visores */
 .pdf-viewer-wrapper + .pdf-viewer-wrapper {
     margin-top: 24px;
     padding-top: 24px;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid #f0f0ee;
 }
 
 /* ========================================
@@ -588,7 +622,7 @@ details[open] > .card-header .card-arrow {
     }
 
     .hero-subtitle {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .main-content {
@@ -597,7 +631,7 @@ details[open] > .card-header .card-arrow {
 
     .navbar-btn {
         padding: 8px 14px;
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .sidebar {

@@ -5,61 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Componentes — SECTEI 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="navbar-left">
-            <a href="../index.html" class="navbar-back">&larr;</a>
+            <a href="../index.html" class="navbar-back"><i data-lucide="arrow-left" class="icon-sm"></i></a>
             <span class="navbar-brand">SECTEI</span>
             <span class="navbar-year">2026</span>
         </div>
         <div class="navbar-right">
-            <span class="navbar-section-tag">Índice Temático</span>
+            <span class="navbar-section-tag">Seccion 8</span>
         </div>
     </nav>
 
     <section class="hero hero-sm">
-        <p class="hero-tag">Sección 8</p>
+        <div class="hero-line"></div>
+        <p class="hero-tag">Seccion 8</p>
         <h1 class="hero-title">Componentes</h1>
-        <p class="hero-subtitle">Componentes electrónicos, mecánicos, sensores y ópticos del proyecto</p>
+        <p class="hero-subtitle">Componentes electronicos, mecanicos, sensores y opticos del proyecto</p>
+        <div class="hero-line"></div>
     </section>
 
     <main class="main-content">
 
-        <section class="card" style="animation-delay: 0.1s;">
+        <section class="card reveal">
             <details>
                 <summary class="card-header">
-                    <span class="card-icon">⚡</span>
-                    <span class="card-title">Electrónicos</span>
-                    <span class="card-arrow">&#9662;</span>
+                    <span class="card-icon"><i data-lucide="zap" class="icon-md"></i></span>
+                    <span class="card-title">Electronicos</span>
+                    <span class="card-arrow"><i data-lucide="chevron-down" class="icon-xs"></i></span>
                 </summary>
                 <div class="card-body">
-                    <p class="empty-state">Agrega documentos sobre componentes electrónicos.</p>
+                    <p class="empty-state">Agrega documentos sobre componentes electronicos.</p>
                 </div>
             </details>
         </section>
 
-        <section class="card" style="animation-delay: 0.15s;">
+        <section class="card reveal">
             <details>
                 <summary class="card-header">
-                    <span class="card-icon">🔧</span>
-                    <span class="card-title">Mecánicos</span>
-                    <span class="card-arrow">&#9662;</span>
+                    <span class="card-icon"><i data-lucide="wrench" class="icon-md"></i></span>
+                    <span class="card-title">Mecanicos</span>
+                    <span class="card-arrow"><i data-lucide="chevron-down" class="icon-xs"></i></span>
                 </summary>
                 <div class="card-body">
-                    <p class="empty-state">Agrega documentos sobre componentes mecánicos.</p>
+                    <p class="empty-state">Agrega documentos sobre componentes mecanicos.</p>
                 </div>
             </details>
         </section>
 
-        <section class="card" style="animation-delay: 0.2s;">
+        <section class="card reveal">
             <details>
                 <summary class="card-header">
-                    <span class="card-icon">📡</span>
+                    <span class="card-icon"><i data-lucide="radio" class="icon-md"></i></span>
                     <span class="card-title">Sensores</span>
-                    <span class="card-arrow">&#9662;</span>
+                    <span class="card-arrow"><i data-lucide="chevron-down" class="icon-xs"></i></span>
                 </summary>
                 <div class="card-body">
                     <p class="empty-state">Agrega documentos sobre sensores.</p>
@@ -67,15 +70,15 @@
             </details>
         </section>
 
-        <section class="card" style="animation-delay: 0.25s;">
+        <section class="card reveal">
             <details>
                 <summary class="card-header">
-                    <span class="card-icon">🔭</span>
-                    <span class="card-title">Ópticos</span>
-                    <span class="card-arrow">&#9662;</span>
+                    <span class="card-icon"><i data-lucide="scan" class="icon-md"></i></span>
+                    <span class="card-title">Opticos</span>
+                    <span class="card-arrow"><i data-lucide="chevron-down" class="icon-xs"></i></span>
                 </summary>
                 <div class="card-body">
-                    <p class="empty-state">Agrega documentos sobre componentes ópticos.</p>
+                    <p class="empty-state">Agrega documentos sobre componentes opticos.</p>
                 </div>
             </details>
         </section>
@@ -83,8 +86,22 @@
     </main>
 
     <footer class="footer">
-        <p>SECTEI 2026 &mdash; Proyecto de investigación</p>
+        <p>SECTEI 2026 &mdash; Proyecto de investigacion</p>
     </footer>
+
+    <script>
+        lucide.createIcons();
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>

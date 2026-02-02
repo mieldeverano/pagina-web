@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SECTEI 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,29 +18,31 @@
         </div>
         <div class="navbar-right">
             <button class="navbar-btn" onclick="openNav()">
-                <span class="hamburger-icon"></span>
-                Índice Temático
+                <i data-lucide="menu" class="icon-sm"></i>
+                Indice Tematico
             </button>
         </div>
     </nav>
 
     <!-- ========== HERO ========== -->
     <section class="hero">
-        <p class="hero-tag">Secretaría de Educación, Ciencia, Tecnología e Innovación</p>
+        <div class="hero-line"></div>
+        <p class="hero-tag">Secretaria de Educacion, Ciencia, Tecnologia e Innovacion</p>
         <h1 class="hero-title">Proyecto SECTEI 2025</h1>
-        <p class="hero-subtitle">Portal de consulta y documentación del proyecto</p>
+        <p class="hero-subtitle">Portal de consulta y documentacion del proyecto</p>
+        <div class="hero-line"></div>
     </section>
 
     <!-- ========== CONTENIDO PRINCIPAL ========== -->
     <main class="main-content">
 
-        <!-- Card: Información General -->
-        <section class="card" style="animation-delay: 0.1s;">
+        <!-- Card: Informacion General -->
+        <section class="card reveal">
             <details>
                 <summary class="card-header">
-                    <span class="card-icon">📂</span>
-                    <span class="card-title">Información General</span>
-                    <span class="card-arrow">&#9662;</span>
+                    <span class="card-icon"><i data-lucide="folder" class="icon-md"></i></span>
+                    <span class="card-title">Informacion General</span>
+                    <span class="card-arrow"><i data-lucide="chevron-down" class="icon-xs"></i></span>
                 </summary>
                 <div class="card-body">
                     <p>info del proyecto lol</p>
@@ -49,31 +52,31 @@
         </section>
 
         <!-- Card: Documentos -->
-        <section class="card" style="animation-delay: 0.2s;">
+        <section class="card reveal">
             <details>
                 <summary class="card-header">
-                    <span class="card-icon">📄</span>
+                    <span class="card-icon"><i data-lucide="file-text" class="icon-md"></i></span>
                     <span class="card-title">Descargar Documentos</span>
-                    <span class="card-arrow">&#9662;</span>
+                    <span class="card-arrow"><i data-lucide="chevron-down" class="icon-xs"></i></span>
                 </summary>
                 <div class="card-body">
                     <p class="card-body-label">Minutas:</p>
                     <div class="doc-list">
                         <a href="https://docs.google.com/document/d/1iqe2y64xt9Wc9UzGSkKYS0JzRL9SPTht0SKCHVyXSp8/edit?tab=t.0" target="_blank" class="doc-link">
-                            <span class="doc-link-icon">&#128196;</span>
+                            <span class="doc-link-icon"><i data-lucide="file" class="icon-md"></i></span>
                             <span class="doc-link-text">
                                 <strong>Minuta SECTEI 04/09/2025</strong>
                                 <small>Google Docs</small>
                             </span>
-                            <span class="doc-link-arrow">&rarr;</span>
+                            <span class="doc-link-arrow"><i data-lucide="arrow-right" class="icon-sm"></i></span>
                         </a>
                         <a href="https://docs.google.com/document/d/11ebGY5aZ4PkgFrd_BcjZT3HaL67oyPHSOcCgbrmZSnI/edit?tab=t.0" target="_blank" class="doc-link">
-                            <span class="doc-link-icon">&#128196;</span>
+                            <span class="doc-link-icon"><i data-lucide="file" class="icon-md"></i></span>
                             <span class="doc-link-text">
                                 <strong>Minuta SECTEI 20/01/2026</strong>
                                 <small>Google Docs</small>
                             </span>
-                            <span class="doc-link-arrow">&rarr;</span>
+                            <span class="doc-link-arrow"><i data-lucide="arrow-right" class="icon-sm"></i></span>
                         </a>
                     </div>
                 </div>
@@ -84,7 +87,7 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
-        <p>SECTEI 2026 &mdash; Proyecto de investigación</p>
+        <p>SECTEI 2026 &mdash; Proyecto de investigacion</p>
     </footer>
 
     <!-- ========== OVERLAY ========== -->
@@ -93,23 +96,55 @@
     <!-- ========== SIDEBAR ========== -->
     <div id="miMenuLateral" class="sidebar">
         <div class="sidebar-header">
-            <span class="sidebar-title">Índice Temático</span>
-            <button class="closebtn" onclick="closeNav()">&times;</button>
+            <span class="sidebar-title">Indice Tematico</span>
+            <button class="closebtn" onclick="closeNav()">
+                <i data-lucide="x" class="icon-sm"></i>
+            </button>
         </div>
         <div class="sidebar-links">
-            <a href="paginas/normativas-y-herramientas.html">1. Normativas y herramientas</a>
-            <a href="paginas/redes-de-monitoreo-actuales.html">2. Redes de monitoreo actuales</a>
-            <a href="paginas/mision-espacial.html">3. Misión espacial</a>
-            <a href="paginas/metodos-de-deteccion.html">4. Métodos de detección</a>
-            <a href="paginas/gases-de-efecto-invernadero.html">5. Gases de efecto invernadero</a>
-            <a href="paginas/cronograma-del-proyecto.html">6. Cronograma del proyecto</a>
-            <a href="paginas/difusion-del-proyecto.html">7. Difusión del proyecto</a>
-            <a href="paginas/componentes.html">8. Componentes</a>
-            <a href="paginas/bom-compras.html">9. BOM - Compras</a>
+            <a href="paginas/normativas-y-herramientas.html">
+                <i data-lucide="scale" class="icon-sm"></i>
+                <span>1. Normativas y herramientas</span>
+            </a>
+            <a href="paginas/redes-de-monitoreo-actuales.html">
+                <i data-lucide="radio" class="icon-sm"></i>
+                <span>2. Redes de monitoreo actuales</span>
+            </a>
+            <a href="paginas/mision-espacial.html">
+                <i data-lucide="rocket" class="icon-sm"></i>
+                <span>3. Mision espacial</span>
+            </a>
+            <a href="paginas/metodos-de-deteccion.html">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span>4. Metodos de deteccion</span>
+            </a>
+            <a href="paginas/gases-de-efecto-invernadero.html">
+                <i data-lucide="cloud" class="icon-sm"></i>
+                <span>5. Gases de efecto invernadero</span>
+            </a>
+            <a href="paginas/cronograma-del-proyecto.html">
+                <i data-lucide="calendar" class="icon-sm"></i>
+                <span>6. Cronograma del proyecto</span>
+            </a>
+            <a href="paginas/difusion-del-proyecto.html">
+                <i data-lucide="megaphone" class="icon-sm"></i>
+                <span>7. Difusion del proyecto</span>
+            </a>
+            <a href="paginas/componentes.html">
+                <i data-lucide="cpu" class="icon-sm"></i>
+                <span>8. Componentes</span>
+            </a>
+            <a href="paginas/bom-compras.html">
+                <i data-lucide="shopping-cart" class="icon-sm"></i>
+                <span>9. BOM - Compras</span>
+            </a>
         </div>
     </div>
 
     <script>
+        // Inicializar iconos Lucide
+        lucide.createIcons();
+
         const overlay = document.getElementById("overlay");
         const sidebar = document.getElementById("miMenuLateral");
 
@@ -122,6 +157,19 @@
             sidebar.classList.remove("open");
             overlay.classList.remove("active");
         }
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
     </script>
 
 </body>

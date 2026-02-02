@@ -5,58 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normativas y Herramientas — SECTEI 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="navbar-left">
-            <a href="../index.html" class="navbar-back">&larr;</a>
+            <a href="../index.html" class="navbar-back"><i data-lucide="arrow-left" class="icon-sm"></i></a>
             <span class="navbar-brand">SECTEI</span>
             <span class="navbar-year">2026</span>
         </div>
         <div class="navbar-right">
-            <span class="navbar-section-tag">Índice Temático</span>
+            <span class="navbar-section-tag">Seccion 1</span>
         </div>
     </nav>
 
     <section class="hero hero-sm">
-        <p class="hero-tag">Sección 1</p>
+        <div class="hero-line"></div>
+        <p class="hero-tag">Seccion 1</p>
         <h1 class="hero-title">Normativas y Herramientas</h1>
-        <p class="hero-subtitle">Documentación sobre normativas aplicables y herramientas del proyecto</p>
+        <p class="hero-subtitle">Documentacion sobre normativas aplicables y herramientas del proyecto</p>
+        <div class="hero-line"></div>
     </section>
 
     <main class="main-content">
 
-        <section class="card" style="animation-delay: 0.1s;">
+        <section class="card reveal">
             <div class="card-section-header">
-                <span class="card-icon">📑</span>
+                <span class="card-icon"><i data-lucide="book-open" class="icon-md"></i></span>
                 <span class="card-title">Documentos</span>
             </div>
             <div class="card-body">
-                <p class="empty-state">Aún no hay documentos en esta sección. Agrega archivos a la carpeta <code>Normativas y herramientas</code> y actualiza los enlaces aquí.</p>
-                <!--
-                    PLANTILLA PARA AGREGAR DOCUMENTOS:
-
-                    <div class="doc-list">
-                        <a href="ENLACE_AQUI" target="_blank" class="doc-link">
-                            <span class="doc-link-icon">📄</span>
-                            <span class="doc-link-text">
-                                <strong>Nombre del documento</strong>
-                                <small>PDF · Google Docs · Excel</small>
-                            </span>
-                            <span class="doc-link-arrow">&rarr;</span>
-                        </a>
-                    </div>
-                -->
+                <p class="empty-state">Aun no hay documentos en esta seccion. Agrega archivos a la carpeta <code>Normativas y herramientas</code> y actualiza los enlaces aqui.</p>
             </div>
         </section>
 
     </main>
 
     <footer class="footer">
-        <p>SECTEI 2026 &mdash; Proyecto de investigación</p>
+        <p>SECTEI 2026 &mdash; Proyecto de investigacion</p>
     </footer>
+
+    <script>
+        lucide.createIcons();
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>

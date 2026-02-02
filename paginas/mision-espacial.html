@@ -3,63 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misión Espacial — SECTEI 2026</title>
+    <title>Mision Espacial — SECTEI 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="navbar-left">
-            <a href="../index.html" class="navbar-back">&larr;</a>
+            <a href="../index.html" class="navbar-back"><i data-lucide="arrow-left" class="icon-sm"></i></a>
             <span class="navbar-brand">SECTEI</span>
             <span class="navbar-year">2026</span>
         </div>
         <div class="navbar-right">
-            <span class="navbar-section-tag">Índice Temático</span>
+            <span class="navbar-section-tag">Seccion 3</span>
         </div>
     </nav>
 
     <section class="hero hero-sm">
-        <p class="hero-tag">Sección 3</p>
-        <h1 class="hero-title">Misión Espacial</h1>
-        <p class="hero-subtitle">Documentación sobre la misión espacial y ambiente espacial</p>
+        <div class="hero-line"></div>
+        <p class="hero-tag">Seccion 3</p>
+        <h1 class="hero-title">Mision Espacial</h1>
+        <p class="hero-subtitle">Documentacion sobre la mision espacial y ambiente espacial</p>
+        <div class="hero-line"></div>
     </section>
 
     <main class="main-content">
 
-        <section class="card" style="animation-delay: 0.1s;">
+        <section class="card reveal">
             <details>
                 <summary class="card-header">
-                    <span class="card-icon">🚀</span>
+                    <span class="card-icon"><i data-lucide="rocket" class="icon-md"></i></span>
                     <span class="card-title">Ambiente Espacial</span>
-                    <span class="card-arrow">&#9662;</span>
+                    <span class="card-arrow"><i data-lucide="chevron-down" class="icon-xs"></i></span>
                 </summary>
                 <div class="card-body">
                     <div class="doc-list">
                         <a href="#" class="doc-link" title="Reemplaza # con el enlace de Google Docs">
-                            <span class="doc-link-icon">📝</span>
+                            <span class="doc-link-icon"><i data-lucide="file-text" class="icon-md"></i></span>
                             <span class="doc-link-text">
-                                <strong>Antecedentes sobre misiones satelitales centradas en la medición de gases atmosféricos</strong>
-                                <small>Word (.docx) — Agrega enlace de Google Docs</small>
+                                <strong>Antecedentes sobre misiones satelitales centradas en la medicion de gases atmosfericos</strong>
+                                <small>Word (.docx)</small>
                             </span>
-                            <span class="doc-link-arrow">&rarr;</span>
+                            <span class="doc-link-arrow"><i data-lucide="arrow-right" class="icon-sm"></i></span>
                         </a>
                         <a href="#" class="doc-link" title="Reemplaza # con el enlace de Google Docs">
-                            <span class="doc-link-icon">📝</span>
+                            <span class="doc-link-icon"><i data-lucide="file-text" class="icon-md"></i></span>
                             <span class="doc-link-text">
-                                <strong>Evaluación del entorno espacial en una órbita LEO heliosincrónica mediante SPENVIS</strong>
-                                <small>Word (.docx) — Agrega enlace de Google Docs</small>
+                                <strong>Evaluacion del entorno espacial en una orbita LEO heliosincronica mediante SPENVIS</strong>
+                                <small>Word (.docx)</small>
                             </span>
-                            <span class="doc-link-arrow">&rarr;</span>
+                            <span class="doc-link-arrow"><i data-lucide="arrow-right" class="icon-sm"></i></span>
                         </a>
                         <a href="#" class="doc-link" title="Reemplaza # con el enlace de Google Docs">
-                            <span class="doc-link-icon">📝</span>
+                            <span class="doc-link-icon"><i data-lucide="file-text" class="icon-md"></i></span>
                             <span class="doc-link-text">
-                                <strong>Investigación sobre factores de ambiente espacial que pueden impactar la misión</strong>
-                                <small>Word (.docx) — Agrega enlace de Google Docs</small>
+                                <strong>Investigacion sobre factores de ambiente espacial que pueden impactar la mision</strong>
+                                <small>Word (.docx)</small>
                             </span>
-                            <span class="doc-link-arrow">&rarr;</span>
+                            <span class="doc-link-arrow"><i data-lucide="arrow-right" class="icon-sm"></i></span>
                         </a>
                     </div>
                 </div>
@@ -69,8 +72,22 @@
     </main>
 
     <footer class="footer">
-        <p>SECTEI 2026 &mdash; Proyecto de investigación</p>
+        <p>SECTEI 2026 &mdash; Proyecto de investigacion</p>
     </footer>
+
+    <script>
+        lucide.createIcons();
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>

@@ -5,76 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOM - Compras — SECTEI 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="navbar-left">
-            <a href="../index.html" class="navbar-back">&larr;</a>
+            <a href="../index.html" class="navbar-back"><i data-lucide="arrow-left" class="icon-sm"></i></a>
             <span class="navbar-brand">SECTEI</span>
             <span class="navbar-year">2026</span>
         </div>
         <div class="navbar-right">
-            <span class="navbar-section-tag">Índice Temático</span>
+            <span class="navbar-section-tag">Seccion 9</span>
         </div>
     </nav>
 
     <section class="hero hero-sm">
-        <p class="hero-tag">Sección 9</p>
+        <div class="hero-line"></div>
+        <p class="hero-tag">Seccion 9</p>
         <h1 class="hero-title">BOM - Compras</h1>
         <p class="hero-subtitle">Bill of Materials, cotizaciones y facturas del proyecto</p>
+        <div class="hero-line"></div>
     </section>
 
     <main class="main-content">
 
-        <section class="card" style="animation-delay: 0.1s;">
+        <section class="card reveal">
             <details>
                 <summary class="card-header">
-                    <span class="card-icon">💰</span>
+                    <span class="card-icon"><i data-lucide="badge-dollar-sign" class="icon-md"></i></span>
                     <span class="card-title">Cotizaciones</span>
-                    <span class="card-arrow">&#9662;</span>
+                    <span class="card-arrow"><i data-lucide="chevron-down" class="icon-xs"></i></span>
                 </summary>
                 <div class="card-body">
                     <div class="pdf-viewer-wrapper">
-                        <p class="pdf-viewer-label">📄 Telescopio Alineación (IX) - 202508 <small>PDF</small></p>
+                        <p class="pdf-viewer-label"><i data-lucide="file-text" class="icon-sm"></i> Telescopio Alineacion (IX) - 202508 <small>PDF</small></p>
                         <div class="pdf-viewer">
-                            <iframe src="../docs/bom-compras/cotizaciones/202508_TelescopioAlineacion(IX).pdf" title="Telescopio Alineación (IX)"></iframe>
+                            <iframe src="../docs/bom-compras/cotizaciones/202508_TelescopioAlineacion(IX).pdf" title="Telescopio Alineacion (IX)"></iframe>
                         </div>
                     </div>
                 </div>
             </details>
         </section>
 
-        <!-- Listado de Necesidades (general, no en subcarpeta) -->
-        <section class="card" style="animation-delay: 0.15s;">
+        <section class="card reveal">
             <div class="card-section-header">
-                <span class="card-icon">📋</span>
+                <span class="card-icon"><i data-lucide="clipboard-list" class="icon-md"></i></span>
                 <span class="card-title">Listado General</span>
             </div>
             <div class="card-body">
                 <div class="doc-list">
                     <a href="https://docs.google.com/spreadsheets/d/12LIT-9dnSvnOv1e2df3EcJRqzSVMS4iEmwBt7QV49RU/edit" target="_blank" class="doc-link">
-                        <span class="doc-link-icon">📊</span>
+                        <span class="doc-link-icon"><i data-lucide="table" class="icon-md"></i></span>
                         <span class="doc-link-text">
                             <strong>Listado de Necesidades</strong>
                             <small>Google Sheets</small>
                         </span>
-                        <span class="doc-link-arrow">&rarr;</span>
+                        <span class="doc-link-arrow"><i data-lucide="arrow-right" class="icon-sm"></i></span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="card" style="animation-delay: 0.2s;">
+        <section class="card reveal">
             <details>
                 <summary class="card-header">
-                    <span class="card-icon">🧾</span>
+                    <span class="card-icon"><i data-lucide="receipt" class="icon-md"></i></span>
                     <span class="card-title">Facturas</span>
-                    <span class="card-arrow">&#9662;</span>
+                    <span class="card-arrow"><i data-lucide="chevron-down" class="icon-xs"></i></span>
                 </summary>
                 <div class="card-body">
-                    <p class="empty-state">Aún no hay facturas en esta sección.</p>
+                    <p class="empty-state">Aun no hay facturas en esta seccion.</p>
                 </div>
             </details>
         </section>
@@ -82,8 +84,22 @@
     </main>
 
     <footer class="footer">
-        <p>SECTEI 2026 &mdash; Proyecto de investigación</p>
+        <p>SECTEI 2026 &mdash; Proyecto de investigacion</p>
     </footer>
+
+    <script>
+        lucide.createIcons();
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
